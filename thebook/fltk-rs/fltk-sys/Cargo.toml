@@ -1,0 +1,34 @@
+[package]
+name = "fltk-sys"
+version = "1.0.11"
+authors = ["MoAlyousef <mohammed.alyousef@neurosrg.com>"]
+build = "build/main.rs"
+edition = "2018"
+description = "Rust bindings for the FLTK GUI library"
+repository = "https://github.com/fltk-rs/fltk-rs"
+keywords = ["gui", "bindings", "graphics"]
+license = "MIT"
+
+[lib]
+name = "fltk_sys"
+path = "src/lib.rs"
+
+[dependencies]
+libc = "0.2.94"
+
+[build-dependencies]
+cmake = "^0.1.45"
+
+[features]
+default = []
+fltk-shared = []
+use-ninja = []
+system-fltk = []
+system-libpng = []
+system-libjpeg = []
+system-zlib = []
+legacy-opengl = []
+fltk-bundled = []
+enable-glwindow = []
+no-images = []
+no-pango = []

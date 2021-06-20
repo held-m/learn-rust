@@ -1,0 +1,6 @@
+[workspace]
+members = [
+	"fltk",
+	"fltk-sys",
+	"fltk-derive",
+]
