@@ -3,14 +3,14 @@ use std::fs;
 use std::io::prelude::*;
 use std::net::TcpListener;
 use std::net::TcpStream;
-use std::thread;
+// use std::thread;
 
 fn main() {
     let listener = TcpListener::bind("localhost:8080").unwrap();
 
     let pool = ThreadPool::new(4);
 
-    for stream in listener.incoming() {
+    for stream in listener.incoming().take(2) {
         let stream = stream.unwrap();
 
         pool.execute(|| {
@@ -20,6 +20,7 @@ fn main() {
         //     handle_connection(stream);
         // });
     }
+    println!("Shutting down");
 }
 
 fn handle_connection(mut stream: TcpStream) {
