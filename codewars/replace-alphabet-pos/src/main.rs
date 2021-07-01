@@ -25,6 +25,7 @@ fn main() {
     
     time_exec_fn(alphabet_position_1, text, "alphabet_position_1");
     time_exec_fn(alphabet_position_2, text, "alphabet_position_2");
+    time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
 }
 
 fn alphabet() -> Vec<char> {
@@ -37,23 +38,6 @@ fn alphabet() -> Vec<char> {
 fn alphabet_hash() -> Zip<IntoIter<char>, Range<i32>> {
     alphabet().into_iter()
     .zip(1..27)
-}
-
-fn alphabet_position_2(text: &str) -> String { 
-
-    let mut result: String = String::new();
-
-    for char in text.to_lowercase().chars() {
-        for (index, letter) in alphabet().iter().enumerate() {
-            if letter == &char {
-                result.push_str((index + 1).to_string().as_str());
-                result.push(' ');
-            }
-        }
-    }
-
-    result.trim().to_string()
-
 }
 
 fn alphabet_position_1(text: &str) -> String {
@@ -74,6 +58,32 @@ fn alphabet_position_1(text: &str) -> String {
 
 
     check.trim().to_string()
+}
+
+fn alphabet_position_2(text: &str) -> String { 
+
+    let mut result: String = String::new();
+
+    for char in text.to_lowercase().chars() {
+        for (index, letter) in alphabet().iter().enumerate() {
+            if letter == &char {
+                result.push_str((index + 1).to_string().as_str());
+                result.push(' ');
+            }
+        }
+    }
+
+    result.trim().to_string()
+
+}
+
+fn alphabet_position_3(text: &str) -> String {
+    text.to_lowercase()
+        .chars()
+        .filter(|c| c >= &'a' && c <= &'z')
+        .map(|c| (c as u32 - 96).to_string())
+        .collect::<Vec<String>>()
+        .join(" ")
 }
 
 fn time_exec_fn(f: fn(&str) -> String, text: &str, fn_name: &str) -> String {
