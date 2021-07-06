@@ -1,10 +1,11 @@
+mod exec_time;
+
 use std::iter::Zip;
 use std::ops::Range;
 use std::vec::IntoIter;
 
 use std::fs;
 use std::io::Read;
-use std::time::SystemTime;
 
 /// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
 ///
@@ -20,9 +21,9 @@ use std::time::SystemTime;
 fn main() {
     let text = &get_text()[..];
 
-    time_exec_fn(alphabet_position_1, text, "alphabet_position_1");
-    time_exec_fn(alphabet_position_2, text, "alphabet_position_2");
-    time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
+    exec_time::exec_time::time_exec_fn(alphabet_position_1, text, "alphabet_position_1");
+    exec_time::exec_time::time_exec_fn(alphabet_position_2, text, "alphabet_position_2");
+    exec_time::exec_time::time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
 }
 
 fn alphabet() -> Vec<char> {
@@ -78,20 +79,6 @@ fn alphabet_position_3(text: &str) -> String {
         .map(|c| (c as u32 - 96).to_string())
         .collect::<Vec<String>>()
         .join(" ")
-}
-
-fn time_exec_fn(f: fn(&str) -> String, text: &str, fn_name: &str) -> String {
-    let start_fn = SystemTime::now();
-    let result: String = f(text);
-    let end_fn = SystemTime::now();
-
-    let exec_time = end_fn
-        .duration_since(start_fn)
-        .expect("Clock may have gone backwards");
-    // let fn_info = dbg!(f);
-    println!("time execuition {}: {:?}", fn_name, exec_time);
-
-    result
 }
 
 fn get_text() -> String {
