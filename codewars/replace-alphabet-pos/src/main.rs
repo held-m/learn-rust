@@ -1,4 +1,4 @@
-mod exec_time;
+mod utils;
 
 use std::iter::Zip;
 use std::ops::Range;
@@ -21,9 +21,9 @@ use std::io::Read;
 fn main() {
     let text = &get_text()[..];
 
-    exec_time::exec_time::time_exec_fn(alphabet_position_1, text, "alphabet_position_1");
-    exec_time::exec_time::time_exec_fn(alphabet_position_2, text, "alphabet_position_2");
-    exec_time::exec_time::time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
+    utils::exec_time::time_exec_fn(alphabet_position_1, text, "alphabet_position_1");
+    utils::exec_time::time_exec_fn(alphabet_position_2, text, "alphabet_position_2");
+    utils::exec_time::time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
 }
 
 fn alphabet() -> Vec<char> {
