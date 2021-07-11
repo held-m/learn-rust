@@ -22,23 +22,20 @@ fn main() {
 ///
 ///
 /// solution1 it's the best. Solution2 I was make it before i found a way make step_by(2).
-/// Solution3 a took from codewars.
+/// Solution3 I took from codewars.
 fn solution1(s: &str) -> Vec<String> {
     let mut str: Vec<char> = s.chars().collect();
     if str.len() % 2 != 0 {
         str.push('_');
     }
 
-    let res = str
-        .iter()
+    str.iter()
         .enumerate()
         .step_by(2)
         .fold(Vec::new(), |mut acc, (i, _ch)| {
             acc.push(format!("{}{}", str[i], str[i + 1]));
             acc
-        });
-
-    res
+        })
 }
 
 fn solution2(s: &str) -> Vec<String> {
