@@ -1,0 +1,123 @@
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta name="robots" content="all"/>
+    <meta name="description" content="Michael Held"/>
+    <meta name="keywords" content="Michael Held"/>
+    <meta name="revisit-after" content="7 days"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Michael Held</title>
+    <link rel="stylesheet" href="/static/css/main.css?ver=0.4"/>
+    <script type="text/javascript" src="/static/js/main.js?ver=0.4"></script>
+</head>
+<body>
+    <script type=module>
+        import init from '/static/js/pkg/frontend.js';
+        init().catch(console.error);
+    </script>
+<div id="page">
+    <div id="header">
+        <img src="/static/img/logo.svg" class="logo">
+        <h1>Michael Held</h1>
+        <div id="lang">
+            <div class="lang" onclick="changeLang('ru');">ru</div>
+            <div class="lang" onclick="changeLang('en');">en</div>
+            <div class="lang" onclick="changeLang('de');">de</div>
+        </div>
+    </div>
+    <div id="content">
+        <div class="listOfWork">
+            <div class="wraper">
+                <h2 id="ProjOnline">Projects online:</h2>
+                <ul>
+                    <li>
+                        <span class="project">
+                            <a href="https://froylandart.com" class="linkProject" target="_blank">Natalia Froyland</a>
+                            <span>(2020)</span>
+                        </span>
+                        <span class="lanuages">(PHP(Laravel), JS(Vue.js), MySQL, CSS, HTML)</span>
+                    </li>
+                    <li>
+                        <span class="project">
+                            <a href="https://chemistrybook.online" class="linkProject" target="_blank"> Chemistry Book online</a>
+                            (2019)
+                        </span>
+                        <span class="lanuages">
+                            (PHP, JS, MySQL, CSS, HTML)
+                        </span>
+
+                    </li>
+                    <li>
+                        <span class="project">
+                            <a href="https://dariaheld.com" class="linkProject" target="_blank">Daria Held</a> (2018)</span>
+                        <span class="lanuages">(Python (Django), CSS, HTML, JS, MySQL)</span>
+		   </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="experience">
+            <div class="wraper">
+                <h2 id="MyExperience">My experience:</h2>
+                <ul>
+                    <li>PHP</li>
+                    <li>C#</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                    <li>CSS</li>
+                    <li>HTML</li>
+                    <li>MySQL</li>
+                    <li>Arduino</li>
+                    <li>Delphi</li>
+                    <li>C++</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div id="language">
+            <div class="wraper">
+                <h2 id="Languages">Languages:</h2>
+                <ul>
+                    <li>RU</li>
+                    <li>EN</li>
+                    <li>DE</li>
+                </ul>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="wraper">
+                <h2 id="Contacts">Contacts:</h2>
+                <p>E-mail: <a href="mailto:it@mikeyheld.com?Subject=MikeyHeld.com" target="_top">it@mikeyheld.com</a></p>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/heldm/" target="_blank">LinkedIn </a></li>
+                    <li><a href="https://www.xing.com/profile/Michael_Held41" target="_blank">XING</a></li>
+                    <li><a href="https://github.com/held-m" target="_blank">GitHub</a></li>
+                    <li>
+                        <img src="/static/img/ort.svg" id="imgCity"/>
+                        <span id="City">Regensburg, Germany</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    var projOnline = document.getElementById('ProjOnline');
+    var iExperiance = document.getElementById('MyExperience');
+    var language = document.getElementById('Languages');
+    var city = document.getElementById('City');
+    var contact = document.getElementById('Contacts');
+    var langSelect = document.getElementsByClassName('lang');
+
+
+    langSelect[1].style.borderBottom = "#698277 solid 1px";
+    langSelect[1].style.borderTop = "#698277 solid 1px";
+</script>
+</html>
+

@@ -6,6 +6,7 @@ use std::vec::IntoIter;
 
 use std::fs;
 use std::io::Read;
+use std::array;
 
 /// In this kata you are required to, given a string, replace every letter with its position in the alphabet.
 ///
@@ -26,15 +27,15 @@ fn main() {
     utils::exec_time::time_exec_fn(alphabet_position_3, text, "alphabet_position_3");
 }
 
-fn alphabet() -> Vec<char> {
-    vec![
+fn alphabet() -> [char; 26] {
+    [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
         's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
     ]
 }
 
 fn alphabet_hash() -> Zip<IntoIter<char>, Range<i32>> {
-    alphabet().into_iter().zip(1..27)
+    alphabet().to_vec().into_iter().zip(1..27)
 }
 
 fn alphabet_position_1(text: &str) -> String {
