@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: docker/backend/Dockerfile
-    restart: always
+    # restart: always
     working_dir: /usr/src/backend
     volumes:
       - './backend:/usr/src/backend'

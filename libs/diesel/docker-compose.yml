@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    # restart: always
+    working_dir: /usr/src/backend
+    volumes:
+      - './backend:/usr/src/backend'
+    ports:
+      - '8000:8000'
+    environment:
+      ADDR: '0.0.0.0:8000'
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    depends_on:
+      - mysql
+
+  web:
+    image: nginx
+    volumes:
+      - ./docker/backend/nginx/templates:/etc/nginx/templates
+      - ./backend/public:/usr/share/nginx
+    ports:
+      - "8080:80"
+    environment:
+     - NGINX_HOST=foobar.com
+     - NGINX_PORT=80
+    depends_on:
+      - app
+
+  mysql:
+    image: mariadb:10.5.8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}

@@ -4,9 +4,19 @@ use tera::{Tera, Context};
 #[get("/")]
 async fn greet() -> impl Responder {
 
-    let tera = Tera::new("templates/*").unwrap();
+    let mut tera = Tera::default();
+
+    
     // tera.add_raw_template("templates/main.html.tera", "the body").unwrap();
-    let template = tera.render("main.html.tera", &Context::new()).unwrap();
+    // let template = tera.render("main.html.tera", &Context::new()).unwrap();
+    let source = include_str!("../templates/main.html.tera");
+    tera.add_raw_template("main", source).unwrap(); 
+
+
+    let mut context = Context::new();
+    context.insert("name", "Rust");
+
+    let template = tera.render("main", &context).unwrap();
     // let template = tera.render_str(input, context)
     // println!("{}", hh);
     // let name = req.match_info().get("name").unwrap_or("World");
