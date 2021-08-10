@@ -18,10 +18,14 @@
         import init from '/static/js/pkg/frontend.js';
         init().catch(console.error);
     </script>
+
+    <div id="app"></div>
+
+
 <div id="page">
     <div id="header">
         <img src="/static/img/logo.svg" class="logo">
-        <h1>Michael Held</h1>
+		<h1>Michael Held</h1>
         <div id="lang">
             <div class="lang" onclick="changeLang('ru');">ru</div>
             <div class="lang" onclick="changeLang('en');">en</div>

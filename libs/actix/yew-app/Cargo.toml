@@ -1,17 +1,9 @@
 [package]
-name = "frontend"
+name = "yew-app"
 version = "0.1.0"
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-
-[lib]
-crate-type = ["cdylib"]
-
-
 [dependencies]
-sauron = "0.34"
-console_error_panic_hook = "0.1"
-log = "0.4"
-console_log = "0.2"
+yew = "0.18"

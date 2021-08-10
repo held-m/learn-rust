@@ -21,9 +21,22 @@ async fn greet() -> impl Responder {
     // println!("{}", hh);
     // let name = req.match_info().get("name").unwrap_or("World");
     // format!("{}", tera)
-    //
+    
     HttpResponse::Ok().body(template)
 }
+
+// #[get("/test-wasm")]
+// async fn test_wasm() {
+    
+//     let source = include_str!("../templates/main.html.tera");
+//     tera.add_raw_template("test-wasm", source).unwrap();
+
+//     let context = Context::new();
+
+//     let templates = tera.render("test-wasm", &context).unwrap();
+
+//     HttpResponse::Ok().body(template)
+// }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -42,6 +55,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(greet)
+            // .service(test_wasm)
             // .route("/", web::get().to(greet))
             // .route("/{name}", web::get().to(greet))
     })

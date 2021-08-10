@@ -8,3 +8,5 @@ edition = "2018"
 [dependencies]
 actix-web = "3"
 tera = "1.12.1"
+color-eyre = "0.5"
+

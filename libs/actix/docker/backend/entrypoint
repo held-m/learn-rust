@@ -8,4 +8,5 @@
 
 #mysql -h $MYSQL_HOST -u $MYSQL_USER -p$MYSQL_PASSWORD -D $MYSQL_DATABASE < /backend/db/main.sql
 
-cargo watch --exec run
+cargo watch --exec run --color=always
+# cargo watch -x 'check --color=always'
